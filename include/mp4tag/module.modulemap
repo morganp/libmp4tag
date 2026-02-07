@@ -1,0 +1,6 @@
+module mp4tag {
+    header "mp4tag.h"
+    header "mp4tag_types.h"
+    header "mp4tag_error.h"
+    export *
+}
