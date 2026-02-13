@@ -69,29 +69,36 @@ mp4tag_close(ctx);
 mp4tag_destroy(ctx);
 ```
 
+## Dependencies
+
+- [libtag_common](https://github.com/morganp/libtag_common) — shared I/O, buffer, and string utilities (included as git submodule)
+
 ## Building
 
-### CMake
+Clone with submodules:
 
 ```bash
-mkdir build && cd build
-cmake ..
-make
+git clone --recursive https://github.com/morganp/libmp4tag.git
 ```
 
-### Bare Xcode toolchain (no CMake)
+If already cloned:
 
 ```bash
-xcrun clang -std=c11 -O2 -Wall -Iinclude -c src/*.c src/**/*.c
-ar rcs libmp4tag.a *.o
+git submodule update --init
 ```
 
 ### XCFramework (macOS + iOS)
 
 ```bash
-chmod +x build_xcframework.sh
 ./build_xcframework.sh
-# Output: build/xcframework/mp4tag.xcframework
+# Output: output/mp4tag.xcframework
+```
+
+### Manual build
+
+```bash
+xcrun clang -std=c11 -O2 -Wall -Iinclude -Isrc -Ideps/libtag_common/include -c src/*.c src/**/*.c
+ar rcs libmp4tag.a *.o
 ```
 
 ## Supported Platforms
@@ -207,20 +214,18 @@ libmp4tag/
 │   ├── mp4tag_types.h      # Type definitions
 │   ├── mp4tag_error.h      # Error codes
 │   └── module.modulemap    # Swift/Clang module map
+├── deps/
+│   └── libtag_common/      # Shared I/O, buffer & string utilities (submodule)
 ├── src/
 │   ├── mp4tag.c            # Main API implementation
 │   ├── mp4/                # MP4 format layer
 │   │   ├── mp4_atoms.c     # Box header read/write, FourCC helpers
 │   │   ├── mp4_parser.c    # File structure parsing (moov/udta/meta/ilst)
 │   │   └── mp4_tags.c      # Tag parsing (ilst) and serialization
-│   ├── io/                 # I/O abstraction
-│   │   └── file_io.c       # Buffered POSIX file I/O (8KB buffer)
-│   └── util/               # Utilities
-│       ├── buffer.c        # Dynamic byte buffer
-│       └── string_util.c   # String helpers
+│   └── util/
+│       └── mp4_buffer_ext.h # MP4-specific buffer extensions
 ├── tests/
 │   └── test_mp4tag.c       # Test suite
-├── CMakeLists.txt
 └── build_xcframework.sh
 ```
 

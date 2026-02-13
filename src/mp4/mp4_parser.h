@@ -5,7 +5,7 @@
 #define MP4_PARSER_H
 
 #include "mp4_atoms.h"
-#include "../io/file_io.h"
+#include <tag_common/file_io.h>
 #include <stdint.h>
 
 #ifdef __cplusplus

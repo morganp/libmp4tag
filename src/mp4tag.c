@@ -5,9 +5,9 @@
 #include "mp4/mp4_parser.h"
 #include "mp4/mp4_tags.h"
 #include "mp4/mp4_atoms.h"
-#include "io/file_io.h"
-#include "util/buffer.h"
-#include "util/string_util.h"
+#include <tag_common/file_io.h>
+#include <tag_common/buffer.h>
+#include <tag_common/string_util.h>
 
 #include <stdlib.h>
 #include <string.h>

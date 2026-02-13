@@ -3,7 +3,7 @@
 
 #include "mp4_tags.h"
 #include "../../include/mp4tag/mp4tag_error.h"
-#include "../util/string_util.h"
+#include <tag_common/string_util.h>
 
 #include <stdlib.h>
 #include <string.h>

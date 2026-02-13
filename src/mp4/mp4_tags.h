@@ -5,8 +5,9 @@
 #define MP4_TAGS_H
 
 #include "../../include/mp4tag/mp4tag_types.h"
-#include "../io/file_io.h"
-#include "../util/buffer.h"
+#include <tag_common/file_io.h>
+#include <tag_common/buffer.h>
+#include "../util/mp4_buffer_ext.h"
 #include "mp4_atoms.h"
 #include "mp4_parser.h"
 

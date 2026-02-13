@@ -25,13 +25,11 @@ SOURCES=(
     src/mp4/mp4_atoms.c
     src/mp4/mp4_parser.c
     src/mp4/mp4_tags.c
-    src/io/file_io.c
-    src/util/buffer.c
-    src/util/string_util.c
 )
 
+TAG_COMMON_DIR="${SCRIPT_DIR}/deps/libtag_common"
 CFLAGS=(-std=c11 -Wall -Wextra -Wpedantic -Wno-unused-parameter -O2)
-INCLUDES=("-I${SCRIPT_DIR}/include" "-I${SCRIPT_DIR}/src")
+INCLUDES=("-I${SCRIPT_DIR}/include" "-I${SCRIPT_DIR}/src" "-I${TAG_COMMON_DIR}/include")
 
 # Clean if requested
 if [[ "${1:-}" == "--clean" ]]; then

@@ -4,8 +4,9 @@
 #ifndef MP4_ATOMS_H
 #define MP4_ATOMS_H
 
-#include "../io/file_io.h"
-#include "../util/buffer.h"
+#include <tag_common/file_io.h>
+#include <tag_common/buffer.h>
+#include "../util/mp4_buffer_ext.h"
 #include <stdint.h>
 
 #ifdef __cplusplus
