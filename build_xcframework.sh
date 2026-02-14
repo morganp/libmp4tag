@@ -25,6 +25,9 @@ SOURCES=(
     src/mp4/mp4_atoms.c
     src/mp4/mp4_parser.c
     src/mp4/mp4_tags.c
+    deps/libtag_common/src/file_io.c
+    deps/libtag_common/src/buffer.c
+    deps/libtag_common/src/string_util.c
 )
 
 TAG_COMMON_DIR="${SCRIPT_DIR}/deps/libtag_common"

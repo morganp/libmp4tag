@@ -10,9 +10,9 @@ set(MP4TAG_SOURCES
     src/mp4/mp4_atoms.c
     src/mp4/mp4_parser.c
     src/mp4/mp4_tags.c
-    src/io/file_io.c
-    src/util/buffer.c
-    src/util/string_util.c
+    deps/libtag_common/src/file_io.c
+    deps/libtag_common/src/buffer.c
+    deps/libtag_common/src/string_util.c
 )
 
 add_library(mp4tag STATIC ${MP4TAG_SOURCES})
@@ -23,6 +23,7 @@ target_include_directories(mp4tag
         $<INSTALL_INTERFACE:include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/deps/libtag_common/include
 )
 
 # Strict warnings
